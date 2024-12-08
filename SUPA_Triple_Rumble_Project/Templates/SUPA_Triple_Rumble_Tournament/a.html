@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Jekyll v3.8.5">
+
+        <!-- Bootstrap CSS -->
+
+        <link href="{% static 'CSS/Bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'CSS/base.css' %}">
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
+        <!-- Icon -->
+
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}" data-bs-theme="dark">
+                    <img src="{% static 'images/project_logo.png' %}" height="40", width="40">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse offcanvas offcanvas-start" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Homepage</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="{% url 'teams' %}">Teams</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="{% url 'tournaments' %}">Tournaments</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+
+                    </ul>
+                    <form class="d-flex col-lg-6" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    {% if not user.is_authenticated %}
+                        <div class="col-2 text-end">
+                            <button type="button" class="btn btn-outline-primary me-2">Login</button>
+                            <button type="button" class="btn btn-primary">Sign-up</button>
+                        </div>
+                    {% else %}
+                        <div class="dropdown text-end col-2">
+                            <a href="{% url 'profile' %}" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                            </a>
+                            <ul class="dropdown-menu text-small">
+                                <li>{{ user.username }}</li>
+                                <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+        <main class="flex-shrink-0">
+            {% block body %}
+            {% endblock %}
+        </main>
+
+        <footer class="footer mt-auto py-3 bg-light">
+            <div class="container">
+                <span class="text-muted">
+                    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                        <li class="nav-item"><a href="{% url 'home' %}" class="nav-link px-2 text-muted">Home</a></li>
+                        <li class="nav-item"><a href="{% url 'teams' %}" class="nav-link px-2 text-muted">Teams</a></li>
+                        <li class="nav-item"><a href="{% url 'tournaments' %}" class="nav-link px-2 text-muted">Tournaments</a></li>
+                        <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-muted">About</a></li>
+                    </ul>
+                    <p class="text-center text-muted">&copy; 2023, WAD2 Group 6B, SUPA Tournament Project.</p>
+                </span>
+            </div>
+        </footer>
+
+        <!-- Basic JavaScript -->
+        <script type="text/javascript" src="{% static 'JavaScript/base.js' %}"></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'JavaScript/Bootstrap/jquery-3.3.1.slim.min.js' %}"></script>
+        <script src="{% static 'JavaScript/Bootstrap/popper.min.js' %}"></script>
+        <script src="{% static 'JavaScript/Bootstrap/bootstrap.bundle.min.js' %}" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,110 @@
+{% extends 'SUPA_Triple_Rumble_Tournament/base.html' %}
+{% load static %}
+{% block title %}
+    Tournaments
+{% endblock %}
+{% block body %}
+    <h1>Tournaments</h1>
+  <head>
+    <link rel="stylesheet" href="D:\WAD_2_Group_6B_Project\SUPA_Triple_Rumble_Project\Static\CSS\styles.css"/>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+  </head>
+  <body>
+    <!--Header -->
+
+    <nav class="navbar">
+      <img
+        src="images/project_logo.png"
+        width="90"
+        height="80"
+        style="border-radius: 10px; margin-top: 0.7rem; margin-left: 1rem"
+      />
+      <div class="nav-items">
+        <h2>
+          <a class="n-item" href="teams.html">Teams</a>
+        </h2>
+        <h2>
+          <a class="n-item" href="#">Homes</a>
+        </h2>
+        <h2>
+          <a class="n-item" href="tournaments.html">Tournaments</a>
+        </h2>
+        <h2>
+          <a class="n-item" href="#">About</a>
+        </h2>
+        <h2>
+          <a class="n-item" href="#">Login/Signup</a>
+        </h2>
+      </div>
+    </nav>
+
+    <div class="mainArea">
+      <div style="display: flex; width: 100%; justify-content: space-between">
+        <div class="leftArea">
+          <div style="display: flex; margin-left: 2rem; margin-top: -2rem">
+            <a
+              class="tab"
+              style="background-color: rgb(13, 92, 129); color: white"
+              >Tournament One</a
+            >
+            <a class="tab">Tournament Two</a>
+            <a class="tab">Tournament Three</a>
+          </div>
+          <img
+            src="images/tournament.png"
+            height="450"
+            width="700"
+            style="margin-top: 1rem; margin-left: 10rem"
+          />
+        </div>
+        <div class="rightArea">
+          <select>
+            <option>Staff List</option>
+            <option>Staff 1</option>
+            <option>Staff 2</option>
+            <option>Staff 3</option>
+            <option>Staff 4</option>
+            <option>Staff 5</option>
+          </select>
+          <br />
+          <br />
+          <select>
+            <option>Admin List</option>
+            <option>Admin 1</option>
+            <option>Admin 2</option>
+            <option>Admin 3</option>
+            <option>Admin 4</option>
+            <option>Admin 5</option>
+          </select>
+          <div style="margin-top: 7rem">
+            <input type="radio" />
+            <label>Sign up to help at tournaments</label>
+            &ensp;&ensp;&ensp;&ensp;&ensp;
+            <br />
+            <input type="radio" /> <label>Tournament available</label>
+            <br />
+            <input type="radio" /> <label>Tournament not available</label>
+            <br />
+            <input type="radio" />
+            <label>Create a tournament</label> <br />
+            <p>&ensp;&ensp;&ensp;( Only Admins )</p>
+            <input type="radio" /> <label>Approve teams enter tournament</label>
+            <p>&ensp;&ensp;&ensp;( Only Admins )</p>
+          </div>
+          <button class="btn1" style="margin-left: 3rem">Go to</button>
+        </div>
+      </div>
+    </div>
+
+    <!--Footer -->
+
+    <footer>
+      <p class="copyright" style="color: white">SportsClub © 2023</p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
+
+{% endblock %}
